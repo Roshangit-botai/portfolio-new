@@ -4,6 +4,16 @@ A responsive personal portfolio website for **Mr Roshan Singha**, a senior softw
 
 The site is built with plain HTML, CSS, and JavaScript, so it does not require a framework or build step.
 
+## Portfolio Preview
+
+### Home
+
+![Portfolio homepage preview](assets/portfolio-home.png)
+
+### Full-Page View
+
+![Portfolio full-page preview](assets/portfolio-full.png)
+
 ## Features
 
 - Responsive, dark-themed portfolio interface
@@ -31,7 +41,9 @@ The site is built with plain HTML, CSS, and JavaScript, so it does not require a
 |-- index.html                  # Main website markup, styles, and scripts
 |-- assets/
 |   |-- profile.webp            # Profile portrait
-|   `-- tapestry-of-resilience.png
+|   |-- tapestry-of-resilience.png
+|   |-- portfolio-home.png      # README homepage preview
+|   `-- portfolio-full.png      # README full-page preview
 |-- projects portfolio new.code-workspace
 `-- README.md
 ```
