@@ -2,7 +2,7 @@
 
 A responsive personal portfolio website for **Mr Roshan Singha**, a senior software developer focused on scalable web applications, microservices, databases, machine learning, and cloud infrastructure.
 
-The site is built with plain HTML, CSS, and JavaScript, so it does not require a framework or build step.
+The portfolio uses plain HTML, CSS, and JavaScript, with a small Node.js server for Gemini chat. No third-party Node packages are required.
 
 ## Portfolio Preview
 
@@ -13,10 +13,11 @@ The site is built with plain HTML, CSS, and JavaScript, so it does not require a
 ## Features
 
 - Responsive, dark-themed portfolio interface
-- Animated network, rocket, shooting-star, and scroll effects
+- Animated network, rocket, original armored flyer, shooting-star, and scroll effects
 - About, skills, education, projects, experience, certifications, and achievements sections
-- Interactive profile assistant with predefined portfolio knowledge
-- Voice navigation using the browser Web Speech API
+- Gemini-powered portfolio assistant with conversation context
+- Voice questions, voice navigation, and optional spoken answers
+- Server-side Gemini API key handling and request limits
 - Interactive 3D-style background powered by Three.js
 - Reduced-motion support for accessible animation preferences
 - Direct links for email, LinkedIn, GitHub, social profiles, and mentoring
@@ -26,6 +27,8 @@ The site is built with plain HTML, CSS, and JavaScript, so it does not require a
 - HTML5
 - CSS3
 - Vanilla JavaScript
+- Node.js built-in HTTP server
+- Google Gemini API
 - Three.js
 - Google Fonts
 - Simple Icons and Devicon
@@ -34,8 +37,14 @@ The site is built with plain HTML, CSS, and JavaScript, so it does not require a
 
 ```text
 .
-|-- index.html                  # Main website markup, styles, and scripts
+|-- index.html                  # Main website markup
+|-- server.js                   # Static hosting and secure Gemini API proxy
+|-- server.test.js              # Built-in Node.js API and static-serving tests
+|-- package.json
+|-- .env.example                # Gemini configuration template
 |-- assets/
+|   |-- styles.css              # Portfolio styles and responsive layouts
+|   |-- script.js               # Portfolio interactions and animations
 |   |-- profile.webp            # Profile portrait
 |   |-- tapestry-of-resilience.png
 |   `-- portfolio-home.png      # README homepage preview
@@ -45,45 +54,44 @@ The site is built with plain HTML, CSS, and JavaScript, so it does not require a
 
 ## Run Locally
 
-No package installation is required.
+Requires Node.js 20.6 or newer. No package installation is needed.
 
-### Option 1: Open the file directly
+1. Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey).
+2. Copy the example environment file and add your key:
 
-Open `index.html` in a modern browser.
+   ```powershell
+   Copy-Item .env.example .env
+   ```
 
-### Option 2: Use a local server
+   Open `.env` and replace the `GEMINI_API_KEY` placeholder. Keep this key private; `.env` is ignored by Git.
 
-From the project directory, run:
+3. Start the server from the project directory:
+
+   ```powershell
+   npm start
+   ```
+
+4. Open <http://localhost:3000>.
+
+Run the server tests with:
 
 ```powershell
-python -m http.server 8000
+npm test
 ```
 
-Then visit `http://localhost:8000`.
-
-You can also use the **Live Server** extension in VS Code:
-
-1. Open the project folder in VS Code.
-2. Right-click `index.html`.
-3. Select **Open with Live Server**.
+The model defaults to `gemini-3.5-flash-lite`; set `GEMINI_MODEL` in `.env` to choose another supported model. The API key remains on the server and is never sent to the browser. Gemini API quota or billing may apply.
 
 ## Browser Support
 
 The portfolio uses modern browser features, including CSS `color-mix()`, WebGL through Three.js, and speech recognition through the Web Speech API.
 
-Voice navigation works only in browsers that support speech recognition and requires microphone permission. The rest of the portfolio remains available when voice recognition or WebGL is unavailable.
+Voice questions and navigation require a supported browser, microphone permission, and a secure context (localhost or HTTPS). Spoken answers use the browser's built-in speech synthesis. Text chat remains available if speech features are unsupported.
 
 ## Deployment
 
-This project can be deployed as a static website on:
+Deploy this project to a Node.js host such as Render, Railway, Fly.io, or Azure App Service. Configure `GEMINI_API_KEY` as a private environment secret and set `PORT` if required by the host. The server serves the portfolio files and provides the Gemini endpoint.
 
-- GitHub Pages
-- Netlify
-- Vercel
-- Cloudflare Pages
-- Azure Static Web Apps
-
-No environment variables or server-side configuration are required.
+Because Gemini requests require the server-side API key, static-only hosting such as GitHub Pages cannot run the assistant by itself.
 
 ## Contact
 
