@@ -10,10 +10,6 @@ The site is built with plain HTML, CSS, and JavaScript, so it does not require a
 
 ![Portfolio homepage preview](assets/portfolio-home.png)
 
-### Full-Page View
-
-![Portfolio full-page preview](assets/portfolio-full.png)
-
 ## Features
 
 - Responsive, dark-themed portfolio interface
@@ -42,8 +38,7 @@ The site is built with plain HTML, CSS, and JavaScript, so it does not require a
 |-- assets/
 |   |-- profile.webp            # Profile portrait
 |   |-- tapestry-of-resilience.png
-|   |-- portfolio-home.png      # README homepage preview
-|   `-- portfolio-full.png      # README full-page preview
+|   `-- portfolio-home.png      # README homepage preview
 |-- projects portfolio new.code-workspace
 `-- README.md
 ```
