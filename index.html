@@ -613,7 +613,7 @@ footer{text-align:center;padding:30px 24px 60px;color:var(--mute);font-size:14px
       var t=ts/1000;
       if(!reduce)ang+=.0014;
       G.rotation.y=ang+mx*.4-.4+sy*1.4;G.rotation.x=my*.25+sy*.25;
-      var bx=wide?4.8:0,by=wide?.1:3.2;
+      var bx=wide?4.8:1,by=wide?.1:3.2;
       Rb.position.x=bx;
       Rb.position.y=by+(scrollY/innerHeight)*world+(reduce?0:Math.sin(t*1.5)*.18);
       Rb.visible=scrollY<innerHeight*1.3;
